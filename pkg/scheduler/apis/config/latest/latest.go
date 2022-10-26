@@ -28,7 +28,7 @@ import (
 func Default() (*config.KubeSchedulerConfiguration, error) {
 	versionedCfg := v1.KubeSchedulerConfiguration{}
 	versionedCfg.DebuggingConfiguration = *v1alpha1.NewRecommendedDebuggingConfiguration()
-
+	// 获取versiondCfg默认值
 	scheme.Scheme.Default(&versionedCfg)
 	cfg := config.KubeSchedulerConfiguration{}
 	if err := scheme.Scheme.Convert(&versionedCfg, &cfg, nil); err != nil {
